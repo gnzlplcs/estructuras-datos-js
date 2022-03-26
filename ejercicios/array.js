@@ -1,8 +1,3 @@
-const array = ['Gonzalo', 'Patricia', 'Joaquín', 'Nadia', 'Lía'];
-
-// agregamos un elemento al final del array
-array.push('Wanda');
-
 class MyArray {
   constructor() {
     this.length = 0;
@@ -19,13 +14,28 @@ class MyArray {
     this.length++;
     return this.data;
   }
-  
+
   // método para eliminar un elemento del array
   pop() {
     const lastItem = this.data[this.length - 1];
     delete this.data[this.length - 1];
     this.length--;
     return lastItem;
+  }
+
+  delete(index) {
+    const item = this.data[index];
+    this.shiftIndex(index);
+    return item;
+  }
+
+  // método para cambiar el index de un elemento
+  shiftIndex(index) {
+    for(let i = index; i < this.length - 1; i++) {
+      this.data[i] = this.data[i + 1];
+    }
+    delete this.data[this.length - 1];
+    this.length--;
   }
 }
 
