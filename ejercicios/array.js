@@ -37,15 +37,28 @@ class MyArray {
     delete this.data[this.length - 1];
     this.length--;
   }
+
+  // método para agregar un elemento al inicio del array
+  unshift(item) {
+    this.shiftIndex(0);
+    this.data[0] = item;
+    this.length++;
+    return this.data;
+  }
+
+  // método para eliminar el primer elemento del array
+  shift() {
+    const firstItem = this.data[0];
+    this.shiftIndex(0);
+    return firstItem;
+  }
 }
 
 const myArray = new MyArray();
 
-myArray.push('Walter');
+myArray.push('Carmela');
 myArray.push('Catalina');
 myArray.push('Diego');
 console.log(myArray);
-myArray.pop();
-console.log(myArray);
-myArray.pop();
+myArray.delete(1);
 console.log(myArray);
